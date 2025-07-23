@@ -2,22 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card : MonoBehaviour
+namespace GearGoblinProductions
 {
-    public int Cost;
-    public string Type;
-    public int Delay;
-    public int Health;
-    public int Attack;
-    // Start is called before the first frame update
-    void Start()
+    [CreateAssetMenu(fileName = "New Card", menuName = "Card")]
+    public class Card : ScriptableObject
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public string cardName;
+        public List<CardType> cardType;
+        public int health;
+        public int damageMin;
+        public int damageMax;
+        public List<DamageType> damageType;
+        public CardSpeed cardSpeed;
+        public enum CardType
+        {
+            Summon,
+            Enchantment
+        }
+        public enum DamageType
+        {
+            Direct,
+            OverTime
+        }
+        public enum CardSpeed
+        {
+            Burst,
+            Slow
+        }
     }
 }
