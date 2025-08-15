@@ -8,7 +8,6 @@ using GearGoblinProductions;
 public class CardDisplay : MonoBehaviour
 {
     public Card cardData;
-
     public Image cardImage;
     public TMP_Text nameText;
     public TMP_Text healthText;
