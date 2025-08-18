@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d38d2bad3a2f724b8a98e31c65fb1f3, type: 3}
-  m_Name: Billy
+  m_Name: 1ofCups
   m_EditorClassIdentifier: 
-  cardName: Billy
+  cardName: 
   cardType: 00000000
-  health: 10
-  damageMin: 5
-  damageMax: 7
-  damageType: 00000000
-  cardSpeed: 1
+  cardSuit: 03000000
+  value: 1
+  cardSprite: {fileID: 0}

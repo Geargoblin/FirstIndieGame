@@ -9,26 +9,24 @@ namespace GearGoblinProductions
     {
         public string cardName;
         public List<CardType> cardType;
-        public int health;
-        public int damageMin;
-        public int damageMax;
+        public List<CardSuit> cardSuit;
+        public int value;
+        //public int damageMin;
+       // public int damageMax;
         public Sprite cardSprite;
-        public List<DamageType> damageType;
-        public CardSpeed cardSpeed;
+        //public List<DamageType> damageType;
+        //public CardSpeed cardSpeed;
         public enum CardType
         {
-            Summon,
-            Enchantment
+            Standard,
+            Tarot
         }
-        public enum DamageType
+        public enum CardSuit
         {
-            Direct,
-            OverTime
-        }
-        public enum CardSpeed
-        {
-            Burst,
-            Slow
+            Wands,
+            Pentacles,
+            Swords,
+            Cups
         }
     }
 }
