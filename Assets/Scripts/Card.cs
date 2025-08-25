@@ -11,11 +11,8 @@ namespace GearGoblinProductions
         public List<CardType> cardType;
         public List<CardSuit> cardSuit;
         public int value;
-        //public int damageMin;
-       // public int damageMax;
         public Sprite cardSprite;
-        //public List<DamageType> damageType;
-        //public CardSpeed cardSpeed;
+        public GameObject prefab;
         public enum CardType
         {
             Standard,

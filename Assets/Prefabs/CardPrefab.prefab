@@ -645,6 +645,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 3331574233387770647}
   - {fileID: 0}
+  displayImage: {fileID: 5005449761179710514}
 --- !u!61 &3437617084423490739
 BoxCollider2D:
   m_ObjectHideFlags: 0

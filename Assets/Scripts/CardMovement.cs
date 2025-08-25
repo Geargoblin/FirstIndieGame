@@ -26,11 +26,13 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
     [SerializeField] private int playPositionXDivider = 4;
     [SerializeField] private float playPositionXMultiplier = 1f;
     [SerializeField] private bool needUpdatePlayPosition = false;
+    private GridManager gridManager;
 
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
+        gridManager = FindObjectOfType<GridManager>();
 
         if (canvas != null)
         {
@@ -71,10 +73,6 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
                 break;
             case 3:
                 HandlePlayState();
-                if (!Input.GetMouseButton(0)) //Check if mouse button is released
-                {
-                    TransitionToState0();
-                }
                 break;
         }
     }
@@ -148,11 +146,32 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
         rectTransform.localPosition = playPosition;
         rectTransform.localRotation = Quaternion.identity;
 
-        if (Input.mousePosition.y < cardPlay.y)
+        if (!Input.GetMouseButton(0))
         {
-            currentState = 2;
-            playArrow.SetActive(false);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+
+            if (hit.collider != null && hit.collider.GetComponent<GridCell>())
+            {
+                GridCell cell = hit.collider.GetComponent<GridCell>();
+                Vector2 targetPos = cell.gridIndex;
+                if (gridManager.AddObjectToGrid(GetComponent<CardDisplay>().cardData.prefab, targetPos))
+                {
+                    HandManager handManager = FindObjectOfType<HandManager>();
+                    handManager.cardsInHand.Remove(gameObject);
+                    handManager.UpdateHandVisuals();
+                    Debug.Log("Placed Card");
+                    Destroy(gameObject);
+                }
+            }
+            TransitionToState0();
         }
+
+        if (Input.mousePosition.y < cardPlay.y)
+            {
+                currentState = 2;
+                playArrow.SetActive(false);
+            }
     }
 
     private void updateCardPlayPostion()

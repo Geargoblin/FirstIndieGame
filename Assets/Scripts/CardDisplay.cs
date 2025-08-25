@@ -11,6 +11,7 @@ public class CardDisplay : MonoBehaviour
     public Image cardImage;
     public TMP_Text nameText;
     public Image[] typeImages;
+    public Image displayImage;
     private Color[] cardColors = {
         Color.red,
         Color.blue
@@ -30,9 +31,11 @@ public class CardDisplay : MonoBehaviour
         cardImage.color = cardColors[(int)cardData.cardType[0]];
 
         nameText.text = cardData.cardName;
+        displayImage.sprite = cardData.cardSprite;
 
         //Update type images
-        for (int i = 0; i < typeImages.Length; i++) {
+        for (int i = 0; i < typeImages.Length; i++)
+        {
             if (i < cardData.cardType.Count)
             {
                 typeImages[i].gameObject.SetActive(true);
@@ -40,7 +43,7 @@ public class CardDisplay : MonoBehaviour
             }
             else
             {
-               typeImages[i].gameObject.SetActive(false); 
+                typeImages[i].gameObject.SetActive(false);
             }
         }
 

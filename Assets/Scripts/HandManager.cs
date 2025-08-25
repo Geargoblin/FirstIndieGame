@@ -39,7 +39,7 @@ public class HandManager : MonoBehaviour
         //UpdateHandVisuals();
     }
 
-    private void UpdateHandVisuals()
+    public void UpdateHandVisuals()
     {
         int cardCount = cardsInHand.Count;
 
