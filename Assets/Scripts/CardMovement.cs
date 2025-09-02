@@ -80,6 +80,7 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
     private void TransitionToState0()
     {
         currentState = 0;
+        GameManager.Instance.playingCard = false;
         rectTransform.localScale = originalScale; //Reset Scale
         rectTransform.localRotation = originalRotation; //Reset Rotation
         rectTransform.localPosition = originalPosition; //Reset Position
@@ -143,6 +144,11 @@ public class CardMovement : MonoBehaviour, IDragHandler, IPointerDownHandler, IP
 
     private void HandlePlayState()
     {
+        if (!GameManager.Instance.playingCard)
+        {
+            GameManager.Instance.playingCard = true;
+        }
+       
         rectTransform.localPosition = playPosition;
         rectTransform.localRotation = Quaternion.identity;
 
