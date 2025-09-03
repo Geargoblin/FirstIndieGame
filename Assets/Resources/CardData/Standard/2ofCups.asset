@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d38d2bad3a2f724b8a98e31c65fb1f3, type: 3}
-  m_Name: 1ofSwords
+  m_Name: 2ofCups
   m_EditorClassIdentifier: 
-  cardName: 1 of Swords
+  cardName: 2 of Cups
   cardType: 00000000
-  cardSuit: 02000000
-  value: 1
+  cardSuit: 03000000
+  value: 2
   cardSprite: {fileID: 0}
   prefab: {fileID: 0}
